@@ -27,6 +27,8 @@
       top: 50%;
       transform: translateY(-50%);
       animation: walk 4s forwards;
+      pointer-events: auto;
+      z-index: 10;
     }
 
     .click-note {
@@ -130,6 +132,7 @@
       transition: transform 1s ease, opacity 1s ease;
       border-radius: 8px;
       box-shadow: inset 0 0 10px #ffb6c1;
+      overflow-y: auto;
     }
 
     .envelope.open .flap {
@@ -178,16 +181,16 @@
   </style>
 </head>
 <body>
-  <audio id="soundClick" src="https://www.myinstants.com/media/sounds/click.mp3"></audio>
-  <audio id="soundMeow" src="https://www.myinstants.com/media/sounds/cat-meow.mp3"></audio>
-  <audio id="soundLetter" src="https://www.myinstants.com/media/sounds/magic.mp3"></audio>
-  <audio id="soundHearts" src="https://www.myinstants.com/media/sounds/sparkle.mp3"></audio>
-  <audio id="soundBackground" src="https://dl.sndup.net/8xk9/cute_background_loop.mp3" loop autoplay></audio>
-  <audio id="soundSteps" src="https://dl.sndup.net/bqtg/cat_steps.mp3"></audio>
+<audio id="soundClick" src="https://www.myinstants.com/media/sounds/click.mp3"></audio>
+<audio id="soundMeow" src="https://www.myinstants.com/media/sounds/cat-meow.mp3"></audio>
+<audio id="soundLetter" src="https://www.myinstants.com/media/sounds/magic.mp3"></audio>
+<audio id="soundHearts" src="https://www.myinstants.com/media/sounds/sparkle.mp3"></audio>
+<audio id="soundBackground" src="https://dl.sndup.net/8xk9/cute_background_loop.mp3" loop autoplay></audio>
+<audio id="soundSteps" src="https://dl.sndup.net/bqtg/cat_steps.mp3"></audio>
+
 
   <div class="cat" id="cat">🐈</div>
   <div class="click-note" id="clickNote">Click the cat to continue</div>
-
   <div class="cat-dialogue" id="catDialogue">
     <div class="cat-face" id="catFace">😺</div>
     <div class="dialogue-box">
@@ -195,17 +198,31 @@
       <div class="questionnaire" id="questions"></div>
     </div>
   </div>
-
   <div class="envelope-container" id="envelopeContainer">
     <div class="envelope" onclick="openEnvelope(this)">
       <div class="flap"></div>
       <div class="letter">
         <h2>💌</h2>
-        <p>(Letter appears here)</p>
+        <p style="white-space: pre-wrap; font-size: 0.85rem;">
+HAIII BEBIIIII
+
+HAPPYY NATIONAL GIRLFRIEND DAYYY!!!
+Today is your day, National Girlfriend Day, and I just want to remind you how truly special you are to me.
+This day is all about youuu, your soft voice, your warm heart, your patience, and all the love you give without asking for anything in return. Ikaw yung dahilan kung bakit naging totoong mahalaga sa’kin ang salitang “girlfriend.” Because you’re not just my girlfriend, you’re my person, my peace, and my home.
+
+I know we can’t see each other right now dahil walang pasok, and it honestly, I really wish we could spend this day together. It breaks my heart a little. I miss you. I miss your presence, your kulit, your smile, everything. But kahit malayo tayo ngayon, I still wanted to do something for you. Kaya I made this website for you. It may be simple, pero every word is from my heart. Sana kahit papano, it makes you feel how loved you are.
+
+Thank you for being so patient, so understanding, and so loving. Thank you for staying, for believing in us, and for being exactly who you are. I’m so proud to call you mine, and I hope you never forget that.
+
+This day is yours. And even though I can’t hold you right now, I’m holding onto every moment we’ve shared, and every moment we’ll still get to have. Babawi ako pag nagkita na tayo ulit. I’ll make sure you feel even more loved than ever.
+
+I love you more than I can ever put into words. Always and only you, bebiii
+
+– Seb
+        </p>
       </div>
     </div>
   </div>
-
   <script>
     const cat = document.getElementById('cat');
     const clickNote = document.getElementById('clickNote');
@@ -240,6 +257,7 @@
 
     cat.addEventListener('animationend', () => {
       clickNote.style.display = 'block';
+      cat.style.pointerEvents = 'auto';
     });
 
     cat.addEventListener('click', () => {
@@ -303,4 +321,3 @@
   </script>
 </body>
 </html>
-
